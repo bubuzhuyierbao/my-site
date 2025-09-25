@@ -1,7 +1,7 @@
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <div style="display: contents">
+      <div v-if="Component" style="display: contents">
         <component :is="Component" />
       </div>
     </transition>
@@ -9,12 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import { watch, ref, nextTick } from 'vue'
+// 暂时不需要导入任何 Vue 函数
 </script>
 
 <script lang="ts">
 export default {
-  name: 'Main',
+  name: 'MainLayout'
 }
 </script>
 

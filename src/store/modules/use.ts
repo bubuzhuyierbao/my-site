@@ -1,6 +1,6 @@
 //user小仓库
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 export const useUserStore = defineStore('user', () => {
   const userName = ref('')
@@ -16,6 +16,6 @@ export const useUserStore = defineStore('user', () => {
   return {
     userName,
     setUserName,
-    clearUserName,
+    clearUserName
   }
 })

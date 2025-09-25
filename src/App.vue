@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="min-h-screen bg-gray-50">
     <!-- 路由出口：当前匹配到的页面组件会显示在这里 -->
     <router-view />
 
@@ -11,5 +11,4 @@
 // App.vue 本身一般不写逻辑，只写全局布局
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

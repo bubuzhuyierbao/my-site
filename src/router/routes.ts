@@ -5,8 +5,8 @@ export const constantRoute: Array<RouteRecordRaw> = [
     component: () => import('@/layout/index.vue'),
     name: 'layout',
     meta: {
-      hidden: false,
-    //   icon: 'Avatar',
+      hidden: false
+      //   icon: 'Avatar',
     },
     redirect: '/home',
     children: [
@@ -16,11 +16,11 @@ export const constantRoute: Array<RouteRecordRaw> = [
         name: 'home',
         meta: {
           title: '首页',
-          hidden: false,
-        //   icon: 'HomeFilled',
-        },
-      },
-    ],
+          hidden: false
+          //   icon: 'HomeFilled',
+        }
+      }
+    ]
   },
   {
     //404
@@ -29,15 +29,13 @@ export const constantRoute: Array<RouteRecordRaw> = [
     name: '404',
     meta: {
       title: '404',
-      hidden: true,
-    //   icon: 'DocumentDelete',
-    },
+      hidden: true
+      //   icon: 'DocumentDelete',
+    }
   }
 ]
 
-export const asyncRoute = [
-
-]
+export const asyncRoute = []
 
 export const anyRoute = {
   path: '/:pathMatch(.*)*',
@@ -45,7 +43,7 @@ export const anyRoute = {
   name: 'Any',
   meta: {
     title: '任意路由',
-    hidden: true,
+    hidden: true
     // icon: 'House',
-  },
+  }
 }

@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ESLint and Prettier
+.eslintcache
+.prettiercache
+
+# Tailwind CSS
+dist/output.css

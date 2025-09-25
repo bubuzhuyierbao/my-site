@@ -11,12 +11,10 @@ const router = createRouter({
   scrollBehavior() {
     return {
       top: 0,
-      left: 0,
+      left: 0
     }
-  },
+  }
 })
 
 //暴露路由
 export default router
-
-

@@ -12,8 +12,8 @@
 import Main from './main/index.vue'
 
 //引入路由组件
-import { useRoute } from 'vue-router'
-let $route = useRoute()
+// import { useRoute } from 'vue-router'
+// let $route = useRoute()
 </script>
 
 <style scoped lang="scss">
@@ -25,11 +25,10 @@ let $route = useRoute()
   background-color: $base-layout-background;
   .layout_main {
     position: absolute;
-   
+
     padding: 20px;
     transition: all 0.3s;
     // background-color: #aaa;
-    
   }
 }
 </style>
