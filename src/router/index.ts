@@ -1,18 +1,22 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import Home from '@/views/Home/index.vue'
+//通过vue-router插件实现模板路由配置
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { constantRoute } from './routes'
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-]
-
+//创建路由器
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  //路由模式
+  history: createWebHashHistory(),
+  routes: constantRoute,
+  //滚动条
+  scrollBehavior() {
+    return {
+      top: 0,
+      left: 0,
+    }
+  },
 })
 
+//暴露路由
 export default router
+
 
