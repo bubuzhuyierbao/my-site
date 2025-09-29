@@ -17,7 +17,9 @@ export default [
         ecmaVersion: 'latest',
         sourceType: 'module'
       },
+      // 👇 add browser globals here
       globals: {
+        ...js.environments.browser.globals, // window, document, setTimeout, etc.
         process: 'readonly',
         __dirname: 'readonly'
       }
@@ -35,7 +37,8 @@ export default [
       'no-unused-vars': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
-      'prettier/prettier': 'error',
+      'prettier/prettier': 'off',
+      indent: 'off',
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'off'
     }
@@ -48,6 +51,9 @@ export default [
         parser: typescriptParser,
         ecmaVersion: 'latest',
         sourceType: 'module'
+      },
+      globals: {
+        ...js.environments.browser.globals // for <script> inside Vue too
       }
     },
     plugins: {
@@ -57,7 +63,8 @@ export default [
     rules: {
       'vue/multi-word-component-names': 'off',
       'vue/no-unused-vars': 'error',
-      'prettier/prettier': 'error',
+      'prettier/prettier': 'off',
+      indent: 'off',
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'off'
     }
