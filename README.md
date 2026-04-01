@@ -1,4 +1,4 @@
-# AiTool
+# v3ts-template
 
 一个基于 Vue 3 + TypeScript + Vite 构建的现代化前端项目模板。
 
@@ -9,6 +9,7 @@
 - ⚡ **Vite** - 极速的开发构建工具
 - 🎨 **SCSS** - 强大的 CSS 预处理器
 - 🌈 **Tailwind CSS** - 实用优先的 CSS 框架
+- 🧩 **Element Plus** - 基于 Vue 3 的完整组件库
 - 🗂️ **Pinia** - 现代化的状态管理
 - 🛣️ **Vue Router** - 官方路由解决方案
 - 🔧 **ESLint** - 代码质量检查
@@ -129,7 +130,109 @@ src/
 - **路由管理**: Vue Router 4.5+
 - **样式预处理**: Sass 1.93+
 - **CSS 框架**: Tailwind CSS 3.4+
+- **UI 组件库**: Element Plus 2.8+
 - **代码规范**: ESLint + Prettier
+
+## 🧩 Element Plus 集成
+
+项目已完整集成 **Element Plus** UI 组件库，支持**自动导入**和**全量导入**两种方式，开箱即用。
+
+### 安装依赖
+项目已内置依赖，无需手动安装，如需重新安装：
+```bash
+pnpm add element-plus
+pnpm add -D unplugin-vue-components unplugin-auto-import
+```
+
+### 自动导入配置（推荐）
+项目已配置**自动导入**，无需在组件中手动 `import` 组件、指令和图标，直接使用即可：
+```typescript
+// vite.config.ts 已内置配置
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default defineConfig({
+  plugins: [
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+})
+```
+
+### 全局使用示例
+无需导入，直接在模板中使用 Element Plus 组件：
+```vue
+<template>
+  <div class="container mx-auto p-4">
+    <!-- 按钮组件 -->
+    <el-button type="primary" @click="handleClick">主要按钮</el-button>
+    <el-button type="success">成功按钮</el-button>
+    <el-button type="danger">危险按钮</el-button>
+
+    <!-- 输入框组件 -->
+    <el-input v-model="inputValue" placeholder="请输入内容" class="w-64 my-4" />
+
+    <!-- 表格组件 -->
+    <el-table :data="tableData" border class="my-4">
+      <el-table-column prop="name" label="姓名" />
+      <el-table-column prop="age" label="年龄" />
+    </el-table>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const inputValue = ref('')
+const tableData = ref([
+  { name: '张三', age: 20 },
+  { name: '李四', age: 22 },
+])
+
+const handleClick = () => {
+  ElMessage.success('操作成功！')
+}
+</script>
+```
+
+### 图标使用
+项目已集成 Element Plus 图标，**自动导入**，直接使用：
+```vue
+<template>
+  <el-icon><Search /></el-icon>
+  <el-button type="primary" icon="Edit">编辑</el-button>
+</template>
+```
+
+### 手动导入（按需使用）
+如需手动导入单个组件：
+```typescript
+import { ElButton, ElInput } from 'element-plus'
+```
+
+### 主题定制
+在 `styles/element.scss` 中自定义 Element Plus 主题色、尺寸等：
+```scss
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #409eff,
+    ),
+    'success': (
+      'base': #67c23a,
+    ),
+  )
+);
+```
+
+### 官方文档
+- [Element Plus 官方文档](https://element-plus.org/)
+- [Element Plus 组件列表](https://element-plus.org/zh-CN/component/button.html)
 
 ## 🎨 Tailwind CSS 使用
 
@@ -225,5 +328,12 @@ chore: 构建过程或辅助工具的变动
 - [TypeScript 官方文档](https://www.typescriptlang.org/)
 - [Vite 官方文档](https://vitejs.dev/)
 - [Tailwind CSS 官方文档](https://tailwindcss.com/)
+- [Element Plus 官方文档](https://element-plus.org/)
 - [Pinia 官方文档](https://pinia.vuejs.org/)
 - [Vue Router 官方文档](https://router.vuejs.org/)
+
+### 总结
+1. 已在**特性、技术栈、相关链接**中补充 Element Plus 相关信息
+2. 新增独立的 **Element Plus 集成** 章节，包含安装、配置、使用示例、图标、主题定制等完整说明
+3. 支持**自动导入**（推荐，零代码侵入）和手动导入两种使用方式
+4. 提供可直接复制的组件使用代码，开箱即用
