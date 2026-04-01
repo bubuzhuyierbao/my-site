@@ -19,6 +19,24 @@ export const constantRoute: Array<RouteRecordRaw> = [
           hidden: false
           //   icon: 'HomeFilled',
         }
+      },
+      {
+        path: '/work',
+        component: () => import('@/views/work/index.vue'),
+        name: 'work',
+        meta: {
+          title: '作品',
+          hidden: false
+        }
+      },
+      {
+        path: '/blog',
+        component: () => import('@/views/blog/index.vue'),
+        name: 'blog',
+        meta: {
+          title: '博客',
+          hidden: false
+        }
       }
     ]
   },
