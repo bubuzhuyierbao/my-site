@@ -12,7 +12,7 @@ export const constantRoute: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/home',
-        component: () => import('@/views/home/index.vue'),
+        component: () => import('@/views/home1/index.vue'),
         name: 'home',
         meta: {
           title: '首页',
